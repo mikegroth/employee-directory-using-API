@@ -19,7 +19,7 @@
 
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-template-rows: repeat(4, minmax(150px, 1fr));
     gap: 1em;
     justify-items: center;
@@ -51,8 +51,8 @@
 
   .card-img {
     border-radius: 50%;
-    max-height: 100px;
-    max-width: 100px;
+    max-height: 80px;
+    max-width: 80px;
   }
 
   .employee-info-box {
@@ -112,6 +112,7 @@
     flex-direction: column;
     justify-content: center;
   }
+  
   .overlay-item {
     margin: auto;
     text-align: center;
