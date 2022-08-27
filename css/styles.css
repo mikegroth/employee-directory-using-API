@@ -6,9 +6,8 @@
   
     html {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(248, 248, 248);
     position: relative;
-    
+    background-color: rgb(248, 248, 248);
   }
 
   body {
@@ -23,10 +22,14 @@
     grid-template-rows: repeat(4, minmax(150px, 1fr));
     gap: 1em;
     justify-items: center;
+    
   }
 
   header {
     margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   h1 {
@@ -34,6 +37,15 @@
     margin-bottom: 1em;
     text-transform: uppercase;
     font-size: 1.2em; 
+  }
+
+  #search-input {
+    width: 30%;
+    height: 2em;
+    margin-left: auto;
+    background-color: rgb(241, 241, 241);
+    border-radius: 5px;
+    border: solid 1px gray;
   }
 
   /* Card Styles for Employee Grid */
@@ -47,6 +59,11 @@
     background-color: #fff;
     padding: 10px;
     width: 100%;
+  }
+
+  .card:hover {
+    transition-duration: .3s;
+    transform: scale(1.05);
   }
 
   .card-img {
@@ -69,15 +86,10 @@
     color:rgb(133, 133, 133);
   }
 
-
-  
-  
-  /* Hidden Overlay design - HIDDEN FOR THE TIME BEING */
-
  
 
   .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -135,3 +147,9 @@
   }
 
   
+
+  @media (min-width: 1024px) {
+    /* .overlay-card {
+      max-width: 20%;
+    } */
+  }
