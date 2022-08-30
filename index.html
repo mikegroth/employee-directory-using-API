@@ -13,7 +13,13 @@
 <body>
     <header class="directory-header">
         <h1>the Wright Cycle Exchange Directory</h1>
-        <input type="search" id="search-input" placeholder="Search for employee" class="employee-search" autocomplete="off">
+        <div class="searchbar-group">
+            <svg class="bicycle" id="bicycle-svg" width="30px" height="30px" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                <path d="M5 19a4 4 0 100-8 4 4 0 000 8zM8.5 7.5h6M19 15l-4-7.5h-.5m0 0l2-3m0 0H14m2.5 0h2" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M5 15l3.5-7.5L12 14h3M8.5 7.5c-.333-1-1.5-3-3.5-3" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 19a4 4 0 100-8 4 4 0 000 8z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <input type="text" id="search-input" placeholder="Search for employee" class="employee-search" autocomplete="off">
+        </div>
     </header>
     
     <main class="grid-container">
@@ -129,22 +135,12 @@
     </main>
 
     <div class="overlay hidden">
-        <div class="overlay-card">
-            <!-- <button class="close-btn" id="close-card">X</button>
-            <div class="overlay-card-content">
-                <img class="card-img overlay-item" src="images/wilbur.jpg" alt="">
-                <div class="employee-info-box overlay-item">
-                    <h2 class="name">Wilbur Wright</h2>
-                    <p class="email">catchMeFlying@email.com</p>
-                    <p class="address">1901 KittyHawk Lane</p>
-                </div>
+        <div class="overlay-package">
+            <svg class="arrow left-arrow hidden" id="buttonL" width="60px" height="60px" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M15 6l-6 6 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div class="overlay-card">
+                <!-- EMPLOYEE MODAL generated via JS-->
             </div>
-
-            <div class="employee-additional-info">
-                <p>(888) 888-8888</p>
-                <p class="address">To The Clouds Blvd, NC 84814</p>
-                <p>Birthday: 04/16/1867</p>
-            </div> -->
+            <svg class="arrow right-arrow hidden" id="buttonR" width="60px" height="60px" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </div>
     </div>
 
