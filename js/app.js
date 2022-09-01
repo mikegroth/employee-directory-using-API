@@ -2,13 +2,11 @@
 let employees = [];
 let currentIndex = '';
 const urlAPI = `https://randomuser.me/api/?results=12&inc=name, picture,
-email, location, phone, dob &noinfo &nat=US`
+email, location, phone, dob &noinfo &nat=US`;
 const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const overlayCard = document.querySelector(".overlay-card");
 const closeCard = document.getElementById('close-card');
-const searchbar = document.getElementById('search-input');
-const directHeader = document.querySelector(".directory-header");
 const Larrow = document.querySelector('.left-arrow');
 const Rarrow = document.querySelector('.right-arrow');
 
@@ -22,7 +20,7 @@ fetch(urlAPI)
     .then(response => response.json())
     .then(data => data.results)
     .then(displayEmployees)
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
 
 
 // ------------------------------------------
@@ -100,7 +98,7 @@ function birthday(date) {
 }
 
 
-// Search function 
+// Search function -- filter employees by employee name
 
 const userSelect = document.getElementById('search-input');
 
@@ -111,7 +109,7 @@ function searchUser() {
     let html = '';
     searchedUserIndex = [];
     for(let i = 0; i < employees.length; i++) {
-        let nameCompare = `${employees[i].name.first} ${employees[i].name.last}`
+        let nameCompare = `${employees[i].name.first} ${employees[i].name.last}`;
         if (nameCompare.toLowerCase().includes(search)) {
             searchedUserIndex.push(i);
             let employeeHTML = `
@@ -153,12 +151,12 @@ overlayCard.addEventListener('click', (e) => {
             }   
 });
 
-const buttonL = document.getElementById('buttonL')
-const buttonR = document.getElementById('buttonR')
+const buttonL = document.getElementById('buttonL');
+const buttonR = document.getElementById('buttonR');
 
 buttonL.addEventListener('click', () => {
     console.log('clicking L Button');
-    previousCard()
+    previousCard();
 });
 
 buttonR.addEventListener('click', (e) => {
@@ -166,21 +164,14 @@ buttonR.addEventListener('click', (e) => {
     nextCard();
 });
 
+
 userSelect.addEventListener('keyup', searchUser);
 
-//Just for Fun // Bicycle Animaiton
+// ------------------------------------------
+//  HELPER FUNCTIONS CONTINUED
+// ------------------------------------------
 
-userSelect.addEventListener('click', () => {
-    let bike = document.getElementById('bicycle-svg');
-    bike.classList.add('bicycle-wheelie');
-    setTimeout(removeBicycle, 1250);
-});
-
-function removeBicycle() {
-    let bike = document.getElementById('bicycle-svg');
-    bike.classList.remove('bicycle-wheelie');
-}
-
+// Display Next/previous employee card in 'modal mode'
 
 function nextCard() {
     if(searchedUserIndex.length === 0 || searchedUserIndex.length === employees.length) {
@@ -218,14 +209,16 @@ function previousCard() {
     }
 }
 
+//Functions to Hide / Show arrow icons within 'modal mode'
+
 function arrowUnhidden() {
     let indexValue = parseInt(currentIndex);
     if(indexValue === 0) {
         Rarrow.classList.remove("hidden");
-        Larrow.classList.add("hidden")
+        Larrow.classList.add("hidden");
     } else if (indexValue === (employees.length - 1)) {
         Larrow.classList.remove("hidden");
-        Rarrow.classList.add("hidden")
+        Rarrow.classList.add("hidden");
     } else {
         Rarrow.classList.remove("hidden");
         Larrow.classList.remove("hidden");
@@ -233,24 +226,35 @@ function arrowUnhidden() {
 }
 
 function searchArrowUnhidden() {
-    let searchedIndexValue = searchedUserIndex.indexOf(parseInt(currentIndex))
-    if(searchedIndexValue === 0) {
+    let searchedIndexValue = searchedUserIndex.indexOf(parseInt(currentIndex));
+    if (searchedUserIndex.length === 1) {
+        Rarrow.classList.add("hidden");
+        Larrow.classList.add("hidden");
+    } else if (searchedIndexValue === 0) {
         Rarrow.classList.remove("hidden");
-        Larrow.classList.add("hidden")
+        Larrow.classList.add("hidden");
     } else if (searchedIndexValue === (searchedUserIndex.length - 1)) {
         Larrow.classList.remove("hidden");
-        Rarrow.classList.add("hidden")
+        Rarrow.classList.add("hidden");
     } else {
         Rarrow.classList.remove("hidden");
         Larrow.classList.remove("hidden");
     } 
 }
 
+//Just for Fun // Bicycle Animaiton
 
-//if the next index is included in the search, show it, if not, move on to the next card
+userSelect.addEventListener('click', () => {
+    let bike = document.getElementById('bicycle-svg');
+    bike.classList.add('bicycle-wheelie');
+    setTimeout(removeBicycle, 1250);
+});
 
+function removeBicycle() {
+    let bike = document.getElementById('bicycle-svg');
+    bike.classList.remove('bicycle-wheelie');
+}
 
-// really all we want is to display the card of the next index in the array 
 
 
 
