@@ -67,7 +67,7 @@
   }
 
   #search-input::placeholder {
-    font-size: 1em;
+    font-size: .75em;
   }
 
   .bicycle {
@@ -208,13 +208,10 @@
     }
     .searchbar-group {
       justify-content: flex-end;
+      width: 50%;
     }
     h1 {
       margin: 1em auto 1em 0;
-    }
-
-    .searchbar-group {
-      width: 50%;
     }
 
     .bicycle {
@@ -230,5 +227,9 @@
       border: solid 1px gray;
       list-style-type: none;
       transition: width 1s;
+    }
+
+    #search-input::placeholder {
+      font-size: 1em;
     }
   }
