@@ -30,7 +30,6 @@ fetch(urlAPI)
 function displayEmployees(employeeInfo) {
     employees = employeeInfo;
     let html = '';
-    console.log(employees[1]);
 
     for(let i = 0; i < employees.length; i++) {
         let employeeHTML = `
@@ -137,14 +136,12 @@ gridContainer.addEventListener('click', (e) => {
         const cardTarget = e.target.closest('.card');
         const index = cardTarget.getAttribute('data-index');
         currentIndex = index;
-        console.log(index);
         displayCard(index);
     }
 });
 
 overlayCard.addEventListener('click', (e) => {
             if(e.target.className === 'close-btn') {
-                console.log('clicking X Button');
                 overlay.classList.add('hidden');
                 Larrow.classList.add('hidden');
                 Rarrow.classList.add('hidden');
@@ -155,12 +152,10 @@ const buttonL = document.getElementById('buttonL');
 const buttonR = document.getElementById('buttonR');
 
 buttonL.addEventListener('click', () => {
-    console.log('clicking L Button');
     previousCard();
 });
 
 buttonR.addEventListener('click', (e) => {
-    console.log('clicking R Button');
     nextCard();
 });
 
@@ -176,14 +171,11 @@ userSelect.addEventListener('keyup', searchUser);
 function nextCard() {
     if(searchedUserIndex.length === 0 || searchedUserIndex.length === employees.length) {
         let nextIndex = (parseInt(currentIndex) + 1);
-        console.log(nextIndex);
         displayCard(nextIndex);
         currentIndex = nextIndex;
         arrowUnhidden();
-        console.log(currentIndex);
     } else {
         let newIndex = searchedUserIndex.indexOf(parseInt(currentIndex));
-        console.log(newIndex);
         let nextNewIndex = searchedUserIndex[newIndex + 1];
         displayCard(nextNewIndex);
         currentIndex = nextNewIndex;
@@ -194,14 +186,11 @@ function nextCard() {
 function previousCard() {
     if(searchedUserIndex.length === 0 || searchedUserIndex.length === employees.length) {
         let previousIndex = (parseInt(currentIndex) - 1);
-        console.log(previousIndex);
         displayCard(previousIndex);
         currentIndex = previousIndex;
         arrowUnhidden();
-        console.log(currentIndex);
     } else {
         let newIndex = searchedUserIndex.indexOf(parseInt(currentIndex));
-        console.log(newIndex);
         let previousNewIndex = searchedUserIndex[newIndex - 1];
         displayCard(previousNewIndex);
         currentIndex = previousNewIndex;
